@@ -36,6 +36,8 @@ input.forEach((row) => {
         if (num !== -1) {
           last = num;
           if (first === -1) first = num;
+
+          break;
         }
       }
     }
