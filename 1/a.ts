@@ -7,20 +7,16 @@ let total = 0;
 input.forEach((row) => {
   // first number in row
   let first = -1;
-  let second = -1;
+  let last = -1;
   row.forEach((char) => {
     // check if number
     if (char.match(/\d/)) {
-      if (first === -1) {
-        first = parseInt(char);
-        second = parseInt(char);
-      } else {
-        second = parseInt(char);
-      }
+      last = parseInt(char);
+      if (first === -1) first = parseInt(char);
     }
   });
 
-  total += first * 10 + second;
+  total += first * 10 + last;
 });
 
 console.log("total", total);
