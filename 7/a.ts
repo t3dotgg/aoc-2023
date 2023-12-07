@@ -87,7 +87,8 @@ const compareHands = (hand1: string, hand2: string) => {
 
   if (h1Index > h2Index) {
     return 1;
-  } else if (h1Index < h2Index) {
+  }
+  if (h1Index < h2Index) {
     return -1;
   }
 
