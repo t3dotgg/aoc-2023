@@ -1,16 +1,12 @@
 const input = Deno.readTextFileSync("input.txt").split("\n");
-// const input = Deno.readTextFileSync("example.txt").split("\n");
 
 const nms = input.map((r) => r.split(" ").map(Number));
 
 const resultArr = nms.map((numbers) => {
-  let childSteps = [numbers];
-  while (
-    !childSteps[childSteps.length - 1]!.every(
-      (n) => n === childSteps[childSteps.length - 1][0]
-    )
-  ) {
-    let current = childSteps[childSteps.length - 1]!;
+  const childSteps = [numbers];
+  const getCurrent = () => childSteps[childSteps.length - 1]!;
+  while (!getCurrent().every((n) => n === getCurrent()[0])) {
+    const current = getCurrent();
     let last = current[0];
     const newArr: number[] = [];
 
@@ -27,8 +23,6 @@ const resultArr = nms.map((numbers) => {
     return acc + c[c.length - 1];
   }, 0);
 });
-
-console.log("input?", resultArr);
 
 const sum = resultArr.reduce((acc, c) => {
   return acc + c;
