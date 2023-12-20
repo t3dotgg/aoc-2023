@@ -1,4 +1,4 @@
-const input = Deno.readTextFileSync("input.txt").split("\n");
-// const input = Deno.readTextFileSync("example.txt").split("\n");
+const input: string[] = (await Bun.file("input.txt").text()).split("\n\n");
+// const input: string[] = (await Bun.file("example.txt").text()).split("\n\n");
 
 console.log("input?", input);
